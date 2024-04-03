@@ -64,6 +64,8 @@ public class FileUpload {
 		Thread.sleep(2000);
 		WebElement e1 = driver.findElement(By.xpath("//body[@id='stage']"));
 		System.out.println(e1.getText());
+		
+		driver.close();
 	}
 
 }

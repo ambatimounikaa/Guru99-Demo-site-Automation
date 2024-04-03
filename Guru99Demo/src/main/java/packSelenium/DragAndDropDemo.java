@@ -14,7 +14,7 @@ import org.openqa.selenium.interactions.*;
 
 public class DragAndDropDemo {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 		System.out.println("Enter browser name: ");
 		Scanner sc = new Scanner(System.in);
@@ -64,6 +64,13 @@ public class DragAndDropDemo {
 		WebElement source3 = driver.findElement(By.xpath("//li[@id='fourth'][2]"));
 		WebElement destination3 = driver.findElement(By.xpath("//ol[@id='amt8']/li[@class='placeholder']"));
 		ac.clickAndHold(source3).moveToElement(destination3).click().build().perform();
+		
+		js.executeScript("window.scrollBy(0,300)");
+		Thread.sleep(2000);
+		WebElement s = driver.findElement(By.xpath("//div[@id='equal'][1]/a"));
+		System.out.println(s.getText());
+		
+		driver.close();
 		
 	}
 
