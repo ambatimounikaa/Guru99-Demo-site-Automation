@@ -25,6 +25,15 @@ Feature: Testing the new tours of Demo Guru99 page
     When I click on signin then username and password field should be displayed
     Then enter the "<username>" and "<password>"
     Then click on submit button and verify the sucessfull login
+   
+  @tag2
+  Scenario: Verifying the flights page and Round trip functionality
+  Given User is on the flights page
+  Then make sure round trip type is selected
+  And mention all the flight details
+  Then specify the preferences and click on continue
+  
+  
 
     Examples: 
       | username  | password | 

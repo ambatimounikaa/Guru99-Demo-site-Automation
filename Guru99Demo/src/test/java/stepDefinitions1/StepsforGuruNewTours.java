@@ -7,17 +7,19 @@ import org.openqa.selenium.WebDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import packSelPageObjects.ToursFlightsPage;
 import packSelPageObjects.ToursHomePage;
 import stepDefinitions.HooksGuruBanking;
 
 public class StepsforGuruNewTours {
 	WebDriver dr;
 	ToursHomePage tp;
+	ToursFlightsPage fp;
 	
 	public StepsforGuruNewTours() {
 		dr = HooksGuruTours.dr;
 	}
-	
+	//Homepage Login functionality
 	@Given("user is on the homepage")
 	public void user_is_on_the_homepage() throws IOException {
 	    tp = new ToursHomePage (dr);
@@ -44,6 +46,39 @@ public class StepsforGuruNewTours {
 		tp = new ToursHomePage (dr);
 	    tp.signIn();
 	    tp.verifyLogin();
+	}
+
+	//Flights page Functionality
+	@Given("User is on the flights page")
+	public void user_is_on_the_flights_page() {
+	    fp  = new ToursFlightsPage(dr);
+	    fp.flightsPage();
+	}
+
+	@Then("make sure round trip type is selected")
+	public void make_sure_round_trip_type_is_selected() {
+		  fp  = new ToursFlightsPage(dr);
+		  fp.typeVerify();
+	}
+
+	@Then("mention all the flight details")
+	public void mention_all_the_flight_details() {
+		  fp  = new ToursFlightsPage(dr);
+		  fp.passengersDropdown();
+		  fp.departLocDropdown();
+		  fp.monthDropdown();
+		  fp.dayDropdown();
+		  fp.arrivingLocation();
+		  fp.returningMonth();
+		  fp.returningDay();
+	}
+
+	@Then("specify the preferences and click on continue")
+	public void specify_the_preferences_and_click_on_continue() {
+		  fp  = new ToursFlightsPage(dr);
+		  fp.serviceClass();
+		  fp.airlinesDropdown();
+		  fp.continueB();
 	}
 
 
